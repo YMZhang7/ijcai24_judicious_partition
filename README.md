@@ -6,6 +6,8 @@ The code requires installing the following Python packages:
 - pulp
 - heapdict
 
+Before running the code, please unzip ```graphs.zip``` and make sure that all json files are in the folder ```graph_json```.
+
 Please specify input:
  - graph_index
     - 1: G1 (n3191e28565.json)
