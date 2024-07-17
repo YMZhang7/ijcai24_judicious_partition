@@ -13,7 +13,7 @@ def spiral_anytime(G, S, t, budget, result):
     while True:
         if len(edge_candidates) == total_edges:
             return result['res']
-        k = len(S) - result['res'] - 1
+        k = len(S) - result['res']
         edges = edge_sampling(G, S, t, k)
         for u, v in edges:
             edge_candidates.add((u, v))
