@@ -25,7 +25,7 @@ def parse_adsim(file_path):
             node_type[obj["properties"]["objectid"]] = obj['labels'][-1]
             if len(obj['labels']) > 1 and obj['labels'][-2] == 'Compromised':
                 compromised_nodes.add(obj["properties"]["objectid"])
-            if obj['properties']['name'] == "DOMAIN ADMINS@TESTLAB.LOCAL":
+            if obj['properties']['name'].split('@')[0].strip() == "DOMAIN ADMINS":
                 DA = obj["properties"]["objectid"]
             if 'highvalue' in obj["properties"]:
                 if not obj["properties"]["highvalue"]:
@@ -48,7 +48,6 @@ def parse_adsim(file_path):
     assert G.has_node(G.graph["DA"])
     print(f'Nodes: {G.number_of_nodes()}')
     print(f'Edges: {G.number_of_edges()}')
-
     return G, low_priv
 
 
